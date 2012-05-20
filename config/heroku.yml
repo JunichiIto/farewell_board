@@ -1,0 +1,22 @@
+#
+# Format:
+# 
+# <heroku_san shorthand name>:
+#   app: <Heroku app name>
+#   stack: <Heroku stack, optional>
+#   config:
+#     - <Heroku config:var name>: <Heroku config:var value>
+#
+production: 
+  stack: cedar
+  app: farewellboard2
+  config: &default
+    BUNDLE_WITHOUT: "development:test"
+    TZ: "Asia/Tokyo"
+
+staging:
+  stack: cedar
+  app: farewellboard2-staging
+  config: &default
+    BUNDLE_WITHOUT: "development:test"
+    TZ: "Asia/Tokyo"
