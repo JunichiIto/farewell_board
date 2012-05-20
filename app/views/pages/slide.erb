@@ -35,7 +35,7 @@
       <!-- Your slides (<article>s) go here. Delete or comment out the
            slides below. -->
 
-<% @messages.each do |m| %>
+<% @messages.each_with_index do |m,i| %>
       <article>
         <h3>
 <%= "#{m.user.name}さんから#{m.to_user.name}さんへ" %>
@@ -43,6 +43,9 @@
         <h4>
 <%= m.text %>
         </h4>
+<h5>
+<%= "(#{i+1} of #{@messages.count})" %>
+<h5>
       </article>
 <% end %>
         
