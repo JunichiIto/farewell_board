@@ -15,7 +15,7 @@
           %td= message.text
           %td 
             = link_to 'Edit', edit_user_message_path(current_user, message), class: "btn"
-            = link_to 'Destroy', user_message_path(current_user, message), :confirm => 'Are you sure?', :method => :delete, class: "btn"
+            = link_to 'Destroy', user_message_path(current_user, message), :confirm => 'Are you sure?', :method => :delete
 - else
   %p
     No messages.
