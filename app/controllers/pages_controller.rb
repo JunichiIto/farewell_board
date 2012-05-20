@@ -5,7 +5,12 @@ class PagesController < ApplicationController
       redirect_to user_messages_path(current_user)
     end
   end
+
   def slide
-    @messages = Message.all.shuffle
+    if signed_in?
+      @messages = Message.all.shuffle
+    else
+      redirect_to root_path
+    end
   end
 end
