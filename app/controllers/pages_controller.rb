@@ -6,6 +6,6 @@ class PagesController < ApplicationController
     end
   end
   def slide
-    @messages = Message.all
+    @messages = Message.all.shuffle
   end
 end
