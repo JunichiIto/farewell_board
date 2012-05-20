@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
-  before_filter :validate_user
+  before_filter :validate_user#, only: [:index, :new, :edit, :create, :destroy, :update]
 
   def index
     @messages = current_user.messages
