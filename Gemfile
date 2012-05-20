@@ -11,7 +11,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'pg'
+group :production do
+  gem 'pg'
+end
+
 gem 'heroku_san', :group => :development
 
 # Gems used only for assets and not required
