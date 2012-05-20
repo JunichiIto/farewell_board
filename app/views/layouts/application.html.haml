@@ -22,12 +22,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") FarewellBoard2
+          %a.brand(href="/") FarewellBoard2
           .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+            - if user_signed_in?
+              %ul.nav.pull-right
+                %li.navbar-text
+                  Logged in as
+                  = current_user.email
+                %li
+                  = link_to "Sign out", destroy_user_session_path, method: :delete
+
 
     .container
 
@@ -35,17 +39,17 @@
         .row
           .span9
             = yield
-          .span3
-            .well.sidebar-nav
-              %h3 Sidebar
-              %ul.nav.nav-list
-                %li.nav-header Sidebar
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
+          -# .span3
+          -#   .well.sidebar-nav
+          -#     %h3 Sidebar
+          -#     %ul.nav.nav-list
+          -#       %li.nav-header Sidebar
+          -#       %li= link_to "Link 1", "/path1"
+          -#       %li= link_to "Link 2", "/path2"
+          -#       %li= link_to "Link 3", "/path3"
     
       %footer
-        %p &copy; Company 2012
+        -# %p &copy; Company 2012
     /
       Javascripts
       \==================================================
