@@ -2,3 +2,5 @@
 - if !user_signed_in?
   %p
     = link_to "Sign in", new_user_session_path, class: "btn"
+- else
+  = link_to "See my messages", user_messages_path(current_user.id), class: "btn"
