@@ -8,9 +8,20 @@
 
   .field
     = f.label :text
-    = f.text_field :text
+    = f.text_area :text, maxlength: 140, rows: 5
+  %div
+    Characters left:
+    %span#char-count
+      = 140 - (@message.text.presence || '').length
   .field
     = f.label :to_user_id
     = f.number_field :to_user_id
   .actions
     = f.submit 'Save'
+:javascript
+  $('#message_text').live('keyup keydown', function(e) {
+    var maxLen = 140;
+    var left = maxLen - $(this).val().length;
+    $('#char-count').html(left);
+  });
+

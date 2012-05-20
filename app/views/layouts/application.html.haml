@@ -14,6 +14,10 @@
     %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72")
     %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114")
 
+    /
+      Javascripts
+      \==================================================
+    = javascript_include_tag "application"
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
@@ -50,9 +54,3 @@
     
       %footer
         -# %p &copy; Company 2012
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
-
