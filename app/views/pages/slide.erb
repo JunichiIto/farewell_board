@@ -14,26 +14,20 @@
 
 <html>
   <head>
-    <title>Presentation</title>
+    <title>Messages</title>
 
     <meta charset='utf-8'>
     <script
       src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
   </head>
-  
-  <style>
-    /* Your individual styles here, or just use inline styles if that’s
-       what you want. */
-    
-    
-  </style>
 
   <body style='display: none'>
 
     <section class='slides layout-regular template-default'>
       
-      <!-- Your slides (<article>s) go here. Delete or comment out the
-           slides below. -->
+    <article>
+        <h1>Messages for you</h2>
+    </article>
       
 <% @users.each_with_index do |u,ui| %>
     <% messages = Message.find_all_by_to_user_id(u.id).shuffle %>
