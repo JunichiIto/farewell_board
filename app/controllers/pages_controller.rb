@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def slide
     if signed_in?
-      @messages = Message.all.shuffle
+      @users = User.all.shuffle
     else
       redirect_to root_path
     end

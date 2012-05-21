@@ -34,21 +34,33 @@
       
       <!-- Your slides (<article>s) go here. Delete or comment out the
            slides below. -->
-
-<% @messages.each_with_index do |m,i| %>
-      <article>
-        <h3>
-<%= "#{m.user.name}さんから#{m.to_user.name}さんへ" %>
-        </h3>
-        <h4>
-<%= m.text %>
-        </h4>
-<h5>
-<%= "(#{i+1} of #{@messages.count})" %>
-<h5>
-      </article>
+      
+<% @users.each_with_index do |u,ui| %>
+    <% messages = Message.find_all_by_to_user_id(u.id).shuffle %>
+    <% messages.each_with_index do |m,mi| %>
+        <% if mi % 7 == 0 %>
+            <article class='smaller'>
+            <h3>
+              <%= "#{u.name}さんへ (#{mi>6?2:1}/2)" %>
+            </h3>
+            <ul>
+        <% end %>
+        <li>
+            <%= m.text %>
+            <%= "(#{m.user.name})" %>
+        <% if (mi+1) % 7 == 0 || m == messages.last %>
+            <h5>
+                <%= "(#{(ui*2)+1+(mi>6?1:0)} of #{@users.count * 2})" %>
+            </h5>
+            </article>
+        <% end %>
+    <% end %>
 <% end %>
-        
+
+    <article>
+        <h1>おわり</h2>
+        <p><%= link_to "最初から", pages_slide_path %></p>
+    </article>
         
     </section>
 
