@@ -4,7 +4,7 @@ namespace :seed do
   task :default_messages => :environment do
     User.all.each do |item|
       User.all.each do |other|
-        if item != other
+        if item != other && item.messages.find_by_to_user_id(other.id).blank?
           item.messages.create! to_user_id: other.id, text: "この豚野郎！"
         end
       end
